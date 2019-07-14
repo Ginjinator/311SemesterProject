@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userpkg;
+package accountpkg;
 
 /**
  *
  * @author Erik
  */
-public class UserController {
-    
-    
+public interface AccountControllerInterface {
+    void deposit(double deposit);
+    void withdrawal(double withdrawal);
+    double checkBalance();
 }

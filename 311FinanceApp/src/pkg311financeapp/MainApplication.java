@@ -5,21 +5,43 @@
  */
 package pkg311financeapp;
 
+import javafx.application.Application;
+import static javafx.application.Application.launch;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.*;
+import javafx.stage.Stage;
+
 /**
  *
  * @author Erik
  */
-public class MainApplication{
+public class MainApplication extends Application{
 
-    private static GenerateLoginWindow newWindow = new GenerateLoginWindow();
+    private static GenerateLoginWindow newLoginWindow = new GenerateLoginWindow();
+    private static GenerateMainMenu newMainMenu = new GenerateMainMenu();
     private static adminpkg.MainAdmin admin = new adminpkg.MainAdmin();
+    
+    @Override
+    public void start(Stage stage) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("LoginFXML.fxml"));
+        
+        Scene scene = new Scene(root);
+        
+        stage.setScene(scene);
+        stage.show();
+    }
     
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        newWindow.createFrame();
+        //launch(args);
         admin.createTestUsers();
+        admin.createTestAccounts();
+        
+        newLoginWindow.createFrame();
+        //Change after testing
+        //newMainMenu.createFrame();
         
     }
     
